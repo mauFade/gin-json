@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/mauFade/gin-json/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -21,4 +22,7 @@ func ConnectDatabase() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// Run migrations
+	DB.AutoMigrate(&models.Post{})
 }
