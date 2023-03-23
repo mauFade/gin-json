@@ -9,11 +9,20 @@ import (
 	"github.com/mauFade/gin-json/models"
 )
 
+type CreatepostInputDTO struct {
+	Title string `json:"title"`
+	Body  string `json:"body"`
+}
+
 func CreatePost(c *gin.Context) {
+	var body CreatepostInputDTO
+
+	c.Bind(&body)
+
 	post := models.Post{
 		ID:        uuid.NewString(),
-		Title:     "example title",
-		Body:      "example body",
+		Title:     body.Title,
+		Body:      body.Body,
 		CreatedAt: time.Now(),
 	}
 
