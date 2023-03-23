@@ -3,7 +3,7 @@ version: "3"
 services:
   postgres:
     image: postgres:latest
-    container_name: Postgres
+    container_name: DB
     hostname: postgres
     environment:
       POSTGRES_PASSWORD: postgres

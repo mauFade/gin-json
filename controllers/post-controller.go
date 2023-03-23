@@ -1,15 +1,20 @@
 package controllers
 
 import (
+	"time"
+
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"github.com/mauFade/gin-json/initializers"
 	"github.com/mauFade/gin-json/models"
 )
 
 func CreatePost(c *gin.Context) {
 	post := models.Post{
-		Title: "example title",
-		Body:  "example body",
+		ID:        uuid.NewString(),
+		Title:     "example title",
+		Body:      "example body",
+		CreatedAt: time.Now(),
 	}
 
 	result := initializers.DB.Create(&post)
