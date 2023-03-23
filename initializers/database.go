@@ -12,7 +12,6 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
-	// dsn := "postgres://postgres:postgres@localhost:5432/gin-postgres"
 	var err error
 
 	dsn := os.Getenv("DATABASE_URL")
